@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    field.cattle.io/creatorId: user-vqwmp
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+  generation: 1
+  labels:
+    cattle.io/creator: norman
+  name: botcms-front
+  namespace: botcms
+  selfLink: /apis/extensions/v1beta1/namespaces/botcms/ingresses/botcms-front
+#  uid: f13e50d0-64b6-11e9-9269-de1c3c6a503b
+spec:
+  rules:
+    - host: botcms.siworks.org
+      http:
+        paths:
+          - backend:
+              serviceName: botcms-front
+              servicePort: 80
+  tls:
+    - hosts:
+        - botcms.siworks.org
+      secretName: botcms-siworks-crt

@@ -1,0 +1,38 @@
+{
+  "defaultSeverity": "warning",
+  "extends": ["tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["node_modules/**", "dist/**", "package.json"]
+  },
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "prettier": true,
+    "quotemark": [true, "single"],
+    "indent": [true, "spaces", 2],
+    "interface-name": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false
+  },
+  "jsRules": {
+    "object-literal-sort-keys": false //Disable for javascript
+  },
+  "member-access": [true, "no-public"],
+  "member-ordering": [
+    true,
+    {
+      "order": [
+        "public-static-field",
+        "public-instance-field",
+        "public-constructor",
+        "private-static-field",
+        "private-instance-field",
+        "private-constructor",
+        "public-instance-method",
+        "protected-instance-method",
+        "private-instance-method"
+      ],
+      "alphabetize": true
+    }
+  ]
+}
